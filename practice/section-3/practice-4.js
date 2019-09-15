@@ -1,6 +1,7 @@
 'use strict';
 
 function createUpdatedCollection(collectionA, objectB) {
+  /** NOT FINISHED **/
   function countSameElements(collection) {
     var key = [];
     var result = [];

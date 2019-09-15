@@ -10,14 +10,14 @@ function createUpdatedCollection(collectionA, objectB) {
     key = collectionA[i];
     for (var j = i; j < collectionA.length; j++) {
       var key2 = collectionA[j];
-      if(key.indexOf(key2) > -1) {
+      if(collectionA[i] == objectB.value[j]) {
         count++;
       } else {
-          if(objectB.value.indexOf(key) > -1) {
+          if(collectionA[i] == objectB.value[j]) {
             if(objectB.value.indexOf(key) == 0) {
               count--;
             } else {
-              count -= objectB.value.indexOf(key);
+              count -= objectB.value[i];
             }
           }
           result.push({key, count});
@@ -27,11 +27,11 @@ function createUpdatedCollection(collectionA, objectB) {
 
     i = j - 1;
     if(i + 1 == collectionA.length){
-      if(objectB.value.indexOf(key) > -1){
+      if(collectionA[i] == objectB.value[j]){
     	  if(objectB.value.indexOf(key) == 0){
     	    count--;
     	  } else {
-    	      count -= objectB.value.indexOf(key);
+    	      count -=objectB.value[i];
     	  }
       }
       result.push({key, count});
