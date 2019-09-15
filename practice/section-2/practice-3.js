@@ -3,23 +3,22 @@
 function countSameElements(collection) {
   var key = [];
   var result = [];
-  var strNum;
-  var strLet;
+  var num;
+  var letter;
   var summary;
 
   for (var i = 0; i < collection.length; i++) {
     summary = 0;
     name = collection[i];
-    if (collection[i].match(/[A-Za-z]\W[0-9]/g)) {
-      collection[i].replace(/\W/g, "");
-      strLet = collection[i].match(/[A-Za-z]/g);
-      name = strLet[0];
+    if (collection[i].match(/[A-Za-z]/g)) {
+      letter = collection[i].match(/[A-Za-z]/g);
+      name = letter[0];
     }
     for (var j = i; j < collection.length; j++) {
       if(collection[i] == collection[j]) {
         if(collection[j].match(/[0-9]/g)) {
-          strNum = collection[j].match(/[0-9]/g);
-          summary += parseInt(strNum);
+          num = collection[j].match(/[0-9]/g);
+          summary += parseInt(num);
         } else {
           summary++;
         }
