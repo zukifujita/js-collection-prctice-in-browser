@@ -16,8 +16,7 @@ function createUpdatedCollection(collectionA, objectB) {
         key = strLet[0];
       }
       for (var j = i; j < collection.length; j++) {
-        var key2 = collectionA[j];
-        if(key.indexOf(key2) > -1) {
+        if(collection[i] == collection[j]) {
           if(collection[j].match(/[0-9]/g)) {
             strNum = collection[j].match(/[0-9]/g);
             count += parseInt(strNum);
@@ -31,13 +30,6 @@ function createUpdatedCollection(collectionA, objectB) {
       }
       i = j - 1;
       if(i + 1 == collection.length){
-        if(objectB.value.indexOf(key) > -1){
-          if(objectB.value.indexOf(key) == 0){
-            count--;
-          } else {
-              count -= objectB.value.indexOf(key);
-          }
-        }
         result.push({key, count});
       }
     }
