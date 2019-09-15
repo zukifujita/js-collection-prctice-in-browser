@@ -1,35 +1,36 @@
 'use strict';
 
 function countSameElements(collection) {
-  var name = [];
+  var key = [];
   var result = [];
-  var str;
-  var count;
+  var strNum;
+  var strLet;
+  var summary;
 
   for (var i = 0; i < collection.length; i++) {
-    count = 0;
+    summary = 0;
     name = collection[i];
     if (collection[i].match(/[A-Za-z]\W[0-9]/g)) {
-      str = collection[j].split(/\W/g);
-      name = str[0];
+      collection[i].replace(/\W/g, "");
+      strLet = collection[i].match(/[A-Za-z]/g);
+      name = strLet[0];
     }
     for (var j = i; j < collection.length; j++) {
       if(collection[i] == collection[j]) {
         if(collection[j].match(/[0-9]/g)) {
-          str = collection[j].split(/\W/g);
-          var num = str[1];
-          count += parseInt(num);
+          strNum = collection[j].match(/[0-9]/g);
+          summary += parseInt(strNum);
         } else {
-          count++;
+          summary++;
         }
       } else {
-        result.push({name, count});
+        result.push({name, summary});
         break;
       }
     }
     i = j - 1;
     if(i + 1 == collection.length){
-      result.push({name, count});
+      result.push({name, summary});
     }
   }
   return result;
