@@ -24,6 +24,7 @@ function createUpdatedCollection(collectionA, objectB) {
           break;
       }
     }
+
     i = j - 1;
     if(i + 1 == collectionA.length){
       if(objectB.value.indexOf(key) > -1){
