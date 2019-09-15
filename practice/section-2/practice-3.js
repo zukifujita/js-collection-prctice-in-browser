@@ -1,9 +1,9 @@
 'use strict';
 
 function countSameElements(collection) {
-  var key = [];
+  var name = [];
   var result = [];
-  var num;
+  var number;
   var letter;
   var summary;
 
@@ -17,8 +17,8 @@ function countSameElements(collection) {
     for (var j = i; j < collection.length; j++) {
       if(collection[i] == collection[j]) {
         if(collection[j].match(/[0-9]/g)) {
-          num = collection[j].match(/[0-9]/g);
-          summary += parseInt(num);
+          number = collection[j].match(/[0-9]/g);
+          summary += parseInt(number);
         } else {
           summary++;
         }
