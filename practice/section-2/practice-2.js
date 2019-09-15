@@ -1,5 +1,12 @@
 'use strict';
 
+function getNumber(value){
+    return value.match(/[0-9]+/g);
+}
+function getLetter(value){
+    return value.match(/[A-Za-z]/g);
+}
+
 function countSameElements(collection) {
   var key = [];
   var result = [];
@@ -11,13 +18,12 @@ function countSameElements(collection) {
     count = 0;
     key = collection[i];
     if (collection[i].match(/[A-Za-z]/g)) {
-      letter = collection[i].match(/[A-Za-z]/g);
-      key = letter[0];
+      key = collection[i].replace(/[^A-Za-z]+/g, "");
     }
     for (var j = i; j < collection.length; j++) {
-      if(collection[i] == collection[j]) {
-        if(collection[j].match(/[0-9]/g)) {
-          number = collection[j].match(/[0-9]/g);
+      if(collection[j].indexOf(key) > -1) {
+        if(collection[j].match(/[0-9]+/g)) {
+          number = collection[j].match(/[0-9]+/g);
           count += parseInt(number);
         } else {
           count++;

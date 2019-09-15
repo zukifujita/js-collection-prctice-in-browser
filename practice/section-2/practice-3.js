@@ -11,13 +11,12 @@ function countSameElements(collection) {
     summary = 0;
     name = collection[i];
     if (collection[i].match(/[A-Za-z]/g)) {
-      letter = collection[i].match(/[A-Za-z]/g);
-      name = letter[0];
+      name = collection[i].replace(/[^A-Za-z]+/g, "");
     }
     for (var j = i; j < collection.length; j++) {
-      if(collection[i] == collection[j]) {
-        if(collection[j].match(/[0-9]/g)) {
-          number = collection[j].match(/[0-9]/g);
+      if(collection[j].indexOf(name) > -1) {
+        if(collection[j].match(/[0-9]+/g)) {
+          number = collection[j].match(/[0-9]+/g);
           summary += parseInt(number);
         } else {
           summary++;
