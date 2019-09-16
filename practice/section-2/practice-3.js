@@ -13,8 +13,8 @@ function countSameElements(collection) {
       name = collection[i].replace(/[^A-Za-z]+/g, "");
     }
     for (var j = i; j < collection.length; j++) {
-      if(collection[j].indexOf(name) > -1) {
-        if(collection[j].match(/[0-9]+/g)) {
+      if (collection[j].indexOf(name) > -1) {
+        if (collection[j].match(/[0-9]+/g)) {
           number = collection[j].match(/[0-9]+/g);
           summary += parseInt(number);
         } else {
@@ -26,7 +26,7 @@ function countSameElements(collection) {
       }
     }
     i = j - 1;
-    if(i + 1 == collection.length){
+    if (i + 1 == collection.length) {
       result.push({name, summary});
     }
   }
