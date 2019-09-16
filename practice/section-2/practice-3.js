@@ -4,7 +4,6 @@ function countSameElements(collection) {
   var name = [];
   var result = [];
   var number;
-  var letter;
   var summary;
 
   for (var i = 0; i < collection.length; i++) {

@@ -1,17 +1,9 @@
 'use strict';
 
-function getNumber(value){
-    return value.match(/[0-9]+/g);
-}
-function getLetter(value){
-    return value.match(/[A-Za-z]/g);
-}
-
 function countSameElements(collection) {
   var key = [];
   var result = [];
   var number;
-  var letter;
   var count;
 
   for (var i = 0; i < collection.length; i++) {
