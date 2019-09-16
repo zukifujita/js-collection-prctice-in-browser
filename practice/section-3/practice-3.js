@@ -9,29 +9,29 @@ function createUpdatedCollection(collectionA, objectB) {
     count = 0;
     key = collectionA[i];
     for (var j = i; j < collectionA.length; j++) {
-      if(collectionA[i] == collectionA[j]) {
+      if (collectionA[i] == collectionA[j]) {
         count++;
       } else {
-          if(objectB.value.indexOf(key) > -1) {
-            if(objectB.value.indexOf(key) == 0) {
-              count--;
-            } else {
-              count -= objectB.value.indexOf(key);
-            }
+        if (objectB.value.indexOf(key) > -1) {
+          if (objectB.value.indexOf(key) == 0) {
+            count--;
+          } else {
+            count -= objectB.value.indexOf(key);
           }
-          result.push({key, count});
-          break;
+        }
+        result.push({key, count});
+        break;
       }
     }
 
     i = j - 1;
-    if(i + 1 == collectionA.length){
-      if(objectB.value.indexOf(key) > -1){
-    	  if(objectB.value.indexOf(key) == 0){
-    	    count--;
-    	  } else {
-    	      count -= objectB.value.indexOf(key);
-    	  }
+    if (i + 1 == collectionA.length) {
+      if (objectB.value.indexOf(key) > -1) {
+        if (objectB.value.indexOf(key) == 0) {
+          count--;
+        } else {
+          count -= objectB.value.indexOf(key);
+        }
       }
       result.push({key, count});
     }
