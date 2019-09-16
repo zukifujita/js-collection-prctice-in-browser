@@ -1,39 +1,48 @@
 'use strict';
 
 function createUpdatedCollection(collectionA, objectB) {
-  /** NOT FINISHED **/
-  function countSameElements(collection) {
-    var key = [];
-    var result = [];
-    var strNum;
-    var strLet;
-    var count;
+  var key = [];
+  var result = [];
+  var number;
+  var count;
 
-    for (var i = 0; i < collection.length; i++) {
-      count = 0;
-      key = collection[i];
-      if (collection[i].match(/[A-Za-z]/g)) {
-        strLet = collection[i].match(/[A-Za-z]/g);
-        key = strLet[0];
-      }
-      for (var j = i; j < collection.length; j++) {
-        if(collection[i] == collection[j]) {
-          if(collection[j].match(/[0-9]/g)) {
-            strNum = collection[j].match(/[0-9]/g);
-            count += parseInt(strNum);
-          } else {
-            count++;
-          }
+  for (var i = 0; i < collectionA.length; i++) {
+    count = 0;
+    key = collectionA[i];
+    if (collectionA[i].match(/[A-Za-z]/g)) {
+      key = collectionA[i].replace(/[^A-Za-z]+/g, "");
+    }
+    for (var j = i; j < collectionA.length; j++) {
+      if (collectionA[j].indexOf(key) > -1) {
+        if (collectionA[j].match(/[0-9]+/g)) {
+          number = collectionA[j].match(/[0-9]+/g);
+          count += parseInt(number);
         } else {
-          result.push({key, count});
-          break;
+          count++;
         }
-      }
-      i = j - 1;
-      if(i + 1 == collection.length){
+      } else {
+          if (objectB.value.indexOf(key) > -1) {
+            if (objectB.value.indexOf(key) == 0) {
+              count--;
+            } else {
+              count -= objectB.value.indexOf(key);
+            }
+          }
         result.push({key, count});
+        break;
       }
     }
-    return result;
+    i = j - 1;
+    if (i + 1 == collectionA.length) {
+      if(objectB.value.indexOf(key) > -1){
+        if(objectB.value.indexOf(key) == 0){
+          count--;
+        } else {
+          count -= objectB.value.indexOf(key);
+        }
+      }
+      result.push({key, count});
+    }
   }
+  return result;
 }
